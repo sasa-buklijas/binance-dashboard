@@ -1,0 +1,11 @@
+# OSX
+.DS_Store
+
+# Python Virtualenv
+venv*
+
+# Personal Visual Studio Code settings
+.vscode/settings.json
+
+# output file
+index.html
