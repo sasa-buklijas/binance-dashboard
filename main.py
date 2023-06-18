@@ -41,7 +41,7 @@ class BinanceExchangeInfo:
                     maybe_break_assets.add(symbol['quoteAsset'])
 
         assert len_pairs == len_trading_pairs+len_non_trading_pairs\
-            ,f'status other than TRADING or BREAK'
+            ,'status other than TRADING or BREAK'
         self._len_trading_pairs = len_trading_pairs
         self._len_non_trading_pairs = len_non_trading_pairs
         self._len_pairs = len_pairs
@@ -54,7 +54,7 @@ class BinanceExchangeInfo:
         len_trading_assets = len(trading_assets)
         len_assets = len(maybe_trading_assets.union(maybe_break_assets))
         assert len_non_trading_assets + len_trading_assets == len_assets\
-            ,f'Number of trading and non_trading assets wrong'
+            ,'Number of trading and non_trading assets wrong'
         self._trading_assets = trading_assets
         self._non_trading_assets = non_trading_assets
         self._len_assets = len_assets
@@ -72,7 +72,7 @@ def main():
     ps.init(filename = output_file, title = 'Binance Dashboard')
 
     time_zone = datetime.datetime.now().astimezone().tzname()
-    header = f'Binance Dasboard from {datetime.datetime.now()} {time_zone}'
+    header = f'Binance Dashboard from {datetime.datetime.now()} {time_zone}'
     ps.row(
         ps.colxl(align='center', type='box', content=ps.h1(header))
     )
@@ -107,6 +107,11 @@ def main():
     +   ps.colxs(align='center', type='box', content=ps.h2(''))
     +   ps.colxs(align='center', type='card', content=ps.h2('Delisted:'))
     +   ps.colxs(align='center', type='card', content=ps.h4(content2))
+    )
+
+    ps.row(
+        ps.colxl(align='center', type='box', content=ps.link('https://github.com/sasa-buklijas/binance-dashboard/tree/main',
+                                                            'Code available on GitHub'))
     )
 
     ps.row(
